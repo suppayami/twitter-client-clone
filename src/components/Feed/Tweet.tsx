@@ -1,6 +1,5 @@
 import React from 'react'
 import { useStores } from '../../hooks/useStores'
-import { toast } from 'react-toastify'
 
 interface TweetData {
     id: number

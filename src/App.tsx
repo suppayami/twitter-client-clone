@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Navbar } from './components/Navbar'
+import { Login } from './views/Login'
+import { Register } from './views/Register'
+import { StoresContext } from './store'
+import { sessionStore } from './store/session'
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const stores = {
+        sessionStore,
+    }
+
+    return (
+        <StoresContext.Provider value={stores}>
+            <Router>
+                <Navbar />
+
+                <Switch>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+
+                    <Route path="/register">
+                        <Register />
+                    </Route>
+                </Switch>
+            </Router>
+        </StoresContext.Provider>
+    )
 }
 
-export default App;
+export default App

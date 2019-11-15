@@ -15,7 +15,7 @@ export const Login: React.FunctionComponent = () => {
 
         try {
             await sessionStore.authenticate(username, password, otp)
-            toast.done('Login successfully')
+            toast.info('Login successfully')
             history.replace('/')
         } catch (err) {
             toast.error(err.response.data.errors.detail)

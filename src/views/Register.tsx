@@ -20,7 +20,7 @@ export const Register: React.FunctionComponent = () => {
 
         try {
             await sessionStore.register(username, password)
-            toast.done('Register successfully')
+            toast.info('Register successfully')
             history.replace('/login')
         } catch (err) {
             toast.error(err.response.data.errors.detail)

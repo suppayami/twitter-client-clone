@@ -11,15 +11,15 @@ export const NavbarAuth: React.FunctionComponent = observer(() => {
 
     useEffect(() => {
         sessionStore.reauthenticate()
-    }, [])
+    }, [sessionStore])
 
     if (sessionStore.isAuthenticated) {
         return (
             <div className="navbar-end">
-                <a className="navbar-item">@{sessionStore.username}</a>
-                <a className="navbar-item" onClick={logout}>
+                <div className="navbar-item">@{sessionStore.username}</div>
+                <div className="navbar-item" onClick={logout}>
                     Logout
-                </a>
+                </div>
             </div>
         )
     }
